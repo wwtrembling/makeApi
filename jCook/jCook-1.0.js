@@ -42,7 +42,7 @@
 		};
 
 	jCook.fn = jCook.prototype = {
-		constructor: jCook,
+		constructor: jCook, //디폴트 constructor 를 jCook으로 재설정
 		init : function(args, target) {
 			var 
 				target = target || doc;
