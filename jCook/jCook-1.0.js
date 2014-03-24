@@ -59,6 +59,7 @@
 				//_$('class', '값');
 				//_$('tag', '값');
 				//_$('selector', '값'); //querySelectorAll() 가능한 곳에서만 제한적으로 사용가능
+				//추후 _$('jCook 메서드명', 'arguments[1] ~ '); //key, value로 기능을 실행할 수 있겠다.
 				return this[args[0]](args[1], target);
 			}else if(args[0].nodeType || args[0] == win) { //DOMElement, window
 				//_$(document);
@@ -627,6 +628,7 @@
 						}
 					});
 				}
+				return this;
 			}
 		},
 		width : function(value) {
@@ -635,7 +637,8 @@
 				elem = this[0];
 			if(value === '') { //get
 				if(this[0] == win) { //window
-					//win.outerWidth
+					//win.outerWidth; //IE9 이상가능
+					//return win.outerWidth;
 					return win.innerWidth;
 				}else if(this[0].nodeType == 9) { //document
 					return Math.max(
@@ -648,6 +651,7 @@
 				}
 			}else { //set
 				this.css.apply(this, [{'width':value}]);
+				return this;
 			}
 		},
 		innerWidth : function(value) {
@@ -668,7 +672,8 @@
 				elem = this[0];
 			if(value === '') { //get
 				if(this[0] == win) {
-					//win.outerHeight
+					//win.outerHeight; //IE9 이상가능
+					//return win.outerHeight;
 					return win.innerHeight;
 				}else if(this[0].nodeType == 9) {
 					//수정필요!!! window, document 구분해서 값을 구해야 한다!!
@@ -682,6 +687,7 @@
 				}
 			}else { //set
 				this.css.apply(this, [{'height':value}]);
+				return this;
 			}
 		},
 		innerHeight : function(value) {
