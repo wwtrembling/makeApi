@@ -33,7 +33,6 @@
 
 		jCook = function() {
 			/*
-			//new를 강제하는 패턴
 			if(!(this instanceof jCook)) {
 				//return new arguments.callee;
 				return new jCook(); //arguments.callee 사용시 JS 엔진에서 속도저하 발생
@@ -63,6 +62,7 @@
 				return this[args[0]](args[1], target);
 			}else if(args[0].nodeType || args[0] == win) { //DOMElement, window
 				//_$(document);
+				//_$(window);
 				/*
 				nodeType
 				1 : Element 노드를 의미
@@ -279,6 +279,7 @@
 	});
 	*/
 
+	//아래 코드는 다른 곳에서도 사용할 수 있도록 공통 변수가 아닌 지역 변수를 사용하자.
 	var 
 		//스크롤 값(element의 경우에는??? 다시 수정 개발하자!!!)
 		getScrollSize = function() {
